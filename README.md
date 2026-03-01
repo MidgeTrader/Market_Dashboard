@@ -14,33 +14,33 @@ This generates: `data/snapshot.json`, `data/events.json`, `data/meta.json`, and 
 
 To preview locally: open `index.html` in a browser, or serve the project root with a static server (e.g. `python -m http.server 8000`) and visit `http://localhost:8000`.
 
-## Deploy to GitHub Pages
+## Despliegue en GitHub Pages
 
-1. Create a new GitHub repository and push this directory’s contents to it (or push as the repo root).
-2. **Before first deploy** you need initial data. Either:
-   - **Recommended:** In the repo go to **Actions** → “Refresh dashboard data” → **Run workflow**. When it finishes, it will commit `data/` to the repo.
-   - Or run locally: `python scripts/build_data.py --out-dir data`, then `git add data/`, commit and push.
-3. In the repo **Settings → Pages**:
-   - Set Source to **GitHub Actions** (or “Deploy from a branch”).
-   - If using a branch: choose branch `main` and folder `/ (root)`.
-4. The workflow runs daily at 16:30 US Eastern to refresh data; you can also run it manually from **Actions**.
+1. Crea un nuevo repositorio en GitHub y sube el contenido de este directorio (o súbelo como la raíz del repo).
+2. **Antes del primer despliegue**, necesitas los datos iniciales. Tienes dos opciones:
+   - **Recomendado:** En el repositorio, ve a **Actions** → “Refresh dashboard data” → **Run workflow**. Cuando termine, se guardarán los datos en la carpeta `data/` del repo.
+   - O ejecútalo localmente: `python scripts/build_data.py --out-dir data`, luego haz `git add data/`, commit y push.
+3. En el repositorio, ve a **Settings → Pages**:
+   - Configura la Fuente (Source) como **GitHub Actions** (o “Deploy from a branch”).
+   - Si usas una rama (branch): elige la rama `master` y la carpeta `/ (root)`.
+4. El proceso (workflow) se ejecuta diariamente a las 16:30 US Eastern para actualizar los datos; también puedes ejecutarlo manualmente desde **Actions**.
 
-Site URL: `https://<your-username>.github.io/<repo-name>/`
+URL del sitio: `https://<tu-usuario>.github.io/Market_Dashboard/`
 
-## Project structure
+## Estructura del proyecto
 
 ```
-market-dashboard/
-├── .github/workflows/refresh_data.yml   # Daily data refresh
-├── scripts/build_data.py                # Fetches data, outputs JSON + charts
-├── data/                                # Generated (commit for Pages)
+Market_Dashboard/
+├── .github/workflows/refresh_data.yml   # Actualización diaria de datos
+├── scripts/build_data.py                # Descarga datos, genera JSON + gráficos
+├── data/                                # Generado (hacer commit para Pages)
 │   ├── snapshot.json
 │   ├── events.json
 │   ├── meta.json
 │   └── charts/*.png
-├── index.html                            # Static frontend
+├── index.html                            # Frontend estático
 ├── requirements.txt
 └── README.md
 ```
 
-Data: Yahoo Finance (yfinance), economic calendar (investpy). Charts: TradingView embed.
+Datos: Yahoo Finance (yfinance), calendario económico (investpy). Gráficos: Integración de TradingView.
