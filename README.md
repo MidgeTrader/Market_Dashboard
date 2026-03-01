@@ -1,6 +1,8 @@
 # Market Dashboard
 
-Static stock dashboard with daily auto-refresh via GitHub Actions (Yahoo Finance), hosted on GitHub Pages.
+![Dashboard Preview](dashboard_preview.png)
+
+Dashboard estático de acciones con actualización diaria de datos (Yahoo Finance), alojado en GitHub Pages.
 
 ## Build data locally
 
