@@ -595,7 +595,7 @@
                         var atrPct = r.atr_pct != null ? r.atr_pct : 0;
                         var dist = r.dist_sma50_atr != null ? r.dist_sma50_atr : 0;
                         var labelClass = getGroupLabelClass(groupName, r.ticker);
-                        html += '<tr class="ticker-row" onclick="updateChart(\'' + r.ticker + '\', this)" data-symbol="' + displayName + '" data-group="' + groupName.replace(/"/g, '&quot;') + '" data-daily="' + (daily != null ? daily : 0) + '" data-intra="' + (intra != null ? intra : 0) + '" data-5d="' + (five != null ? five : 0) + '" data-20d="' + (twenty != null ? twenty : 0) + '" data-atr_pct="' + atrPct + '" data-dist_sma50_atr="' + dist + '" data-rs="' + rs + '" data-abc="' + abc + '" data-letf="' + letf + '" data-index="' + i + '">';
+                        html += '<tr class="ticker-row" onclick="updateChart(\'' + r.ticker + '\', this)" data-ticker="' + r.ticker + '" data-symbol="' + displayName + '" data-group="' + groupName.replace(/"/g, '&quot;') + '" data-daily="' + (daily != null ? daily : 0) + '" data-intra="' + (intra != null ? intra : 0) + '" data-5d="' + (five != null ? five : 0) + '" data-20d="' + (twenty != null ? twenty : 0) + '" data-atr_pct="' + atrPct + '" data-dist_sma50_atr="' + dist + '" data-rs="' + rs + '" data-abc="' + abc + '" data-letf="' + letf + '" data-index="' + i + '">';
                         html += '<td><span class="ticker-label ' + labelClass + '">' + displayName + '</span></td>';
                         html += '<td>' + (abc ? '<span class="abc-rating abc-' + abc.toLowerCase() + '">' + abc + '</span>' : '-') + '</td>';
                         html += '<td class="' + dailyCl + '">' + (daily != null ? '<div class="value-visualization"><div class="value-bar ' + (daily >= 0 ? 'positive' : 'negative') + '" style="width:' + dailyW + '%"></div><span class="value-text">' + (daily >= 0 ? '+' : '') + daily.toFixed(2) + '%</span></div>' : 'N/A') + '</td>';
@@ -771,8 +771,8 @@
                     allTickerRows[0].classList.add('active');
                 }
                 document.addEventListener('keydown', function (e) {
-                    if (e.key === 'ArrowDown') { e.preventDefault(); if (currentIndex < allTickerRows.length - 1) { currentIndex++; updateChart(allTickerRows[currentIndex].getAttribute('data-symbol'), allTickerRows[currentIndex]); } }
-                    if (e.key === 'ArrowUp') { e.preventDefault(); if (currentIndex > 0) { currentIndex--; updateChart(allTickerRows[currentIndex].getAttribute('data-symbol'), allTickerRows[currentIndex]); } }
+                    if (e.key === 'ArrowDown') { e.preventDefault(); if (currentIndex < allTickerRows.length - 1) { currentIndex++; updateChart(allTickerRows[currentIndex].getAttribute('data-ticker') || allTickerRows[currentIndex].getAttribute('data-symbol'), allTickerRows[currentIndex]); } }
+                    if (e.key === 'ArrowUp') { e.preventDefault(); if (currentIndex > 0) { currentIndex--; updateChart(allTickerRows[currentIndex].getAttribute('data-ticker') || allTickerRows[currentIndex].getAttribute('data-symbol'), allTickerRows[currentIndex]); } }
                 });
             }
 
