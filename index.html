@@ -622,12 +622,25 @@
                 initApp();
             }
 
+            function getTVSymbol(sym) {
+                if (!sym) return 'SPY';
+                if (sym.endsWith('=X')) return 'FX_IDC:' + sym.replace('=X', '');
+                var commMap = {
+                    'CL=F': 'NYMEX:CL1!', 'NG=F': 'NYMEX:NG1!', 'BZ=F': 'TVC:UKOIL',
+                    'HG=F': 'COMEX:HG1!', 'ZC=F': 'CBOT:ZC1!', 'ZS=F': 'CBOT:ZS1!', 'ZW=F': 'CBOT:ZW1!'
+                };
+                if (commMap[sym]) return commMap[sym];
+                if (sym.includes('^')) return sym.replace('^', '');
+                return sym;
+            }
+
             function initChart(symbol) {
                 if (chartWidget) { chartWidget.remove(); chartWidget = null; }
+                var tvSymbol = getTVSymbol(symbol);
                 chartWidget = new TradingView.widget({
                     allow_symbol_change: true, calendar: false, details: true, hide_side_toolbar: false, hide_top_toolbar: false,
                     hide_legend: false, hide_volume: true, hotlist: false, interval: 'D', locale: 'en', save_image: false,
-                    style: '1', symbol: symbol, theme: 'dark', timezone: 'America/Toronto', toolbar_bg: '#1a1a1a', backgroundColor: '#1a1a1a',
+                    style: '1', symbol: tvSymbol, theme: 'dark', timezone: 'America/Toronto', toolbar_bg: '#1a1a1a', backgroundColor: '#1a1a1a',
                     gridColor: 'rgba(255,255,255,0.1)', watchlist: [], withdateranges: true, studies: ['STD;MA%Ribbon', 'Volume@tv-basicstudies'],
                     autosize: true, enable_publishing: false, container_id: 'tradingview-chart'
                 });

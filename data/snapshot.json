@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-03-01T13:13:43.633353Z",
+  "built_at": "2026-03-01T13:35:22.136726Z",
   "groups": {
     "Indices": [
       {
@@ -2206,8 +2206,8 @@
         "20d": -1.36,
         "atr_pct": 0.6,
         "dist_sma50_atr": 0.38,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 10.0,
+        "rs_chart": "data/charts/EURUSD_X.png",
         "long": [],
         "short": [],
         "abc": "B"
@@ -2220,8 +2220,8 @@
         "20d": -1.43,
         "atr_pct": 0.7,
         "dist_sma50_atr": -0.62,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 0.0,
+        "rs_chart": "data/charts/GBPUSD_X.png",
         "long": [],
         "short": [],
         "abc": "B"
@@ -2234,8 +2234,8 @@
         "20d": 0.54,
         "atr_pct": 0.9,
         "dist_sma50_atr": 0.03,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 80.0,
+        "rs_chart": "data/charts/USDJPY_X.png",
         "long": [],
         "short": [],
         "abc": "B"
@@ -2248,8 +2248,8 @@
         "20d": 1.15,
         "atr_pct": 0.8,
         "dist_sma50_atr": -1.64,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 100.0,
+        "rs_chart": "data/charts/USDCHF_X.png",
         "long": [],
         "short": [],
         "abc": "C"
@@ -2262,8 +2262,8 @@
         "20d": 2.48,
         "atr_pct": 0.9,
         "dist_sma50_atr": 3.78,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 40.0,
+        "rs_chart": "data/charts/AUDUSD_X.png",
         "long": [],
         "short": [],
         "abc": "A"
@@ -2276,8 +2276,8 @@
         "20d": 0.05,
         "atr_pct": 0.5,
         "dist_sma50_atr": -1.09,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 95.0,
+        "rs_chart": "data/charts/USDCAD_X.png",
         "long": [],
         "short": [],
         "abc": "C"
@@ -2290,8 +2290,8 @@
         "20d": -0.27,
         "atr_pct": 0.9,
         "dist_sma50_atr": 1.88,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 10.0,
+        "rs_chart": "data/charts/NZDUSD_X.png",
         "long": [],
         "short": [],
         "abc": "A"
@@ -2304,8 +2304,8 @@
         "20d": 0.94,
         "atr_pct": 0.4,
         "dist_sma50_atr": 1.27,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 65.0,
+        "rs_chart": "data/charts/EURGBP_X.png",
         "long": [],
         "short": [],
         "abc": "A"
@@ -2318,8 +2318,8 @@
         "20d": 0.37,
         "atr_pct": 0.8,
         "dist_sma50_atr": 0.18,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 15.0,
+        "rs_chart": "data/charts/EURJPY_X.png",
         "long": [],
         "short": [],
         "abc": "C"
@@ -2332,8 +2332,8 @@
         "20d": -0.55,
         "atr_pct": 0.9,
         "dist_sma50_atr": -0.42,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 5.0,
+        "rs_chart": "data/charts/GBPJPY_X.png",
         "long": [],
         "short": [],
         "abc": "C"
@@ -2346,8 +2346,8 @@
         "20d": -0.23,
         "atr_pct": 0.4,
         "dist_sma50_atr": -2.55,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 25.0,
+        "rs_chart": "data/charts/EURCHF_X.png",
         "long": [],
         "short": [],
         "abc": "C"
@@ -2360,8 +2360,8 @@
         "20d": 3.01,
         "atr_pct": 1.1,
         "dist_sma50_atr": 3.19,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 45.0,
+        "rs_chart": "data/charts/AUDJPY_X.png",
         "long": [],
         "short": [],
         "abc": "A"
@@ -2374,8 +2374,8 @@
         "20d": 0.47,
         "atr_pct": 0.9,
         "dist_sma50_atr": 0.65,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 20.0,
+        "rs_chart": "data/charts/CADJPY_X.png",
         "long": [],
         "short": [],
         "abc": "B"
@@ -2388,8 +2388,8 @@
         "20d": 2.42,
         "atr_pct": 0.7,
         "dist_sma50_atr": 4.28,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 90.0,
+        "rs_chart": "data/charts/AUDCAD_X.png",
         "long": [],
         "short": [],
         "abc": "A"
@@ -2402,42 +2402,14 @@
         "20d": -2.12,
         "atr_pct": 0.7,
         "dist_sma50_atr": -4.27,
-        "rs": null,
-        "rs_chart": null,
+        "rs": 50.0,
+        "rs_chart": "data/charts/EURAUD_X.png",
         "long": [],
         "short": [],
         "abc": "C"
       }
     ],
     "Commodities": [
-      {
-        "ticker": "GC=F",
-        "daily": 1.38,
-        "intra": 0.88,
-        "5d": 3.73,
-        "20d": null,
-        "atr_pct": 2.6,
-        "dist_sma50_atr": 3.89,
-        "rs": 50.0,
-        "rs_chart": "data/charts/GC_F.png",
-        "long": [],
-        "short": [],
-        "abc": "A"
-      },
-      {
-        "ticker": "SI=F",
-        "daily": 7.23,
-        "intra": 4.73,
-        "5d": 13.38,
-        "20d": null,
-        "atr_pct": 7.1,
-        "dist_sma50_atr": 1.84,
-        "rs": 10.0,
-        "rs_chart": "data/charts/SI_F.png",
-        "long": [],
-        "short": [],
-        "abc": "A"
-      },
       {
         "ticker": "CL=F",
         "daily": 2.78,
@@ -2521,34 +2493,6 @@
         "long": [],
         "short": [],
         "abc": "A"
-      },
-      {
-        "ticker": "ZW=F",
-        "daily": 3.45,
-        "intra": 3.05,
-        "5d": 3.14,
-        "20d": null,
-        "atr_pct": 2.1,
-        "dist_sma50_atr": 5.75,
-        "rs": 100.0,
-        "rs_chart": "data/charts/ZW_F.png",
-        "long": [],
-        "short": [],
-        "abc": "A"
-      },
-      {
-        "ticker": "PL=F",
-        "daily": 6.4,
-        "intra": 4.03,
-        "5d": 9.39,
-        "20d": null,
-        "atr_pct": 4.0,
-        "dist_sma50_atr": 1.46,
-        "rs": 0.0,
-        "rs_chart": "data/charts/PL_F.png",
-        "long": [],
-        "short": [],
-        "abc": "B"
       }
     ]
   },
@@ -2682,15 +2626,15 @@
     "Commodities": {
       "daily": [
         1.13,
-        7.23
+        3.52
       ],
       "intra": [
         0.51,
-        4.73
+        2.72
       ],
       "5d": [
         -6.17,
-        13.38
+        4.91
       ],
       "20d": [
         -30,

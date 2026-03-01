@@ -58,8 +58,8 @@ STOCK_GROUPS = {
         "EURCHF=X", "AUDJPY=X", "CADJPY=X", "AUDCAD=X", "EURAUD=X"
     ],
     "Commodities": [
-        "GC=F", "SI=F", "CL=F", "NG=F", "BZ=F", 
-        "HG=F", "ZC=F", "ZS=F", "ZW=F", "PL=F"
+        "XAUUSD=X", "XAGUSD=X", "XPTUSD=X", "XPDUSD=X", "CL=F", 
+        "NG=F", "BZ=F", "HG=F", "ZC=F", "ZS=F"
     ]
 }
 
@@ -195,8 +195,13 @@ def calculate_atr(hist_data, period=14):
 
 def calculate_rrs(stock_data, spy_data, atr_length=14, length_rolling=50, length_sma=20, atr_multiplier=1.0):
     try:
+        stock_df = stock_data[['High', 'Low', 'Close']].copy()
+        spy_df = spy_data[['High', 'Low', 'Close']].copy()
+        stock_df.index = stock_df.index.tz_localize(None).normalize()
+        spy_df.index = spy_df.index.tz_localize(None).normalize()
+        
         merged = pd.merge(
-            stock_data[['High', 'Low', 'Close']], spy_data[['High', 'Low', 'Close']],
+            stock_df, spy_df,
             left_index=True, right_index=True, suffixes=('_stock', '_spy'), how='inner'
         )
         if len(merged) < atr_length + 1:
