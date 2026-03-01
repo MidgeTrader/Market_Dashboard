@@ -582,14 +582,21 @@
                         var intraCl = intra != null ? (intra > 0 ? 'price-up' : (intra < 0 ? 'price-down' : '')) : '';
                         var fiveCl = five != null ? (five > 0 ? 'price-up' : (five < 0 ? 'price-down' : '')) : '';
                         var twentyCl = twenty != null ? (twenty > 0 ? 'price-up' : (twenty < 0 ? 'price-down' : '')) : '';
+                        var friendlyNames = {
+                            'GC=F': 'Gold', 'SI=F': 'Silver', 'CL=F': 'Crude Oil',
+                            'NG=F': 'Natural Gas', 'BZ=F': 'Brent Crude', 'HG=F': 'Copper',
+                            'ZC=F': 'Corn', 'ZS=F': 'Soybeans', 'ZW=F': 'Wheat', 'PL=F': 'Platinum'
+                        };
+                        var displayName = friendlyNames[r.ticker] || r.ticker;
+
                         var letf = (r.long && r.long.length) || (r.short && r.short.length) ? '1' : '0';
                         var abc = r.abc || '';
                         var rs = r.rs != null ? r.rs : 0;
                         var atrPct = r.atr_pct != null ? r.atr_pct : 0;
                         var dist = r.dist_sma50_atr != null ? r.dist_sma50_atr : 0;
                         var labelClass = getGroupLabelClass(groupName, r.ticker);
-                        html += '<tr class="ticker-row" onclick="updateChart(\'' + r.ticker + '\', this)" data-symbol="' + r.ticker + '" data-group="' + groupName.replace(/"/g, '&quot;') + '" data-daily="' + (daily != null ? daily : 0) + '" data-intra="' + (intra != null ? intra : 0) + '" data-5d="' + (five != null ? five : 0) + '" data-20d="' + (twenty != null ? twenty : 0) + '" data-atr_pct="' + atrPct + '" data-dist_sma50_atr="' + dist + '" data-rs="' + rs + '" data-abc="' + abc + '" data-letf="' + letf + '" data-index="' + i + '">';
-                        html += '<td><span class="ticker-label ' + labelClass + '">' + r.ticker + '</span></td>';
+                        html += '<tr class="ticker-row" onclick="updateChart(\'' + r.ticker + '\', this)" data-symbol="' + displayName + '" data-group="' + groupName.replace(/"/g, '&quot;') + '" data-daily="' + (daily != null ? daily : 0) + '" data-intra="' + (intra != null ? intra : 0) + '" data-5d="' + (five != null ? five : 0) + '" data-20d="' + (twenty != null ? twenty : 0) + '" data-atr_pct="' + atrPct + '" data-dist_sma50_atr="' + dist + '" data-rs="' + rs + '" data-abc="' + abc + '" data-letf="' + letf + '" data-index="' + i + '">';
+                        html += '<td><span class="ticker-label ' + labelClass + '">' + displayName + '</span></td>';
                         html += '<td>' + (abc ? '<span class="abc-rating abc-' + abc.toLowerCase() + '">' + abc + '</span>' : '-') + '</td>';
                         html += '<td class="' + dailyCl + '">' + (daily != null ? '<div class="value-visualization"><div class="value-bar ' + (daily >= 0 ? 'positive' : 'negative') + '" style="width:' + dailyW + '%"></div><span class="value-text">' + (daily >= 0 ? '+' : '') + daily.toFixed(2) + '%</span></div>' : 'N/A') + '</td>';
                         html += '<td class="' + intraCl + '">' + (intra != null ? '<div class="value-visualization"><div class="value-bar ' + (intra >= 0 ? 'positive' : 'negative') + '" style="width:' + intraW + '%"></div><span class="value-text">' + (intra >= 0 ? '+' : '') + intra.toFixed(2) + '%</span></div>' : 'N/A') + '</td>';
