@@ -634,8 +634,8 @@
                 if (sym.endsWith('=X')) return 'FX_IDC:' + sym.replace('=X', '');
                 var commMap = {
                     'GC=F': 'OANDA:XAUUSD', 'SI=F': 'OANDA:XAGUSD', 'CL=F': 'USOIL',
-                    'NG=F': 'UNG', 'BZ=F': 'UKOIL', 'HG=F': 'COMEX:HG1!',
-                    'ZC=F': 'CBOT:ZC1!', 'ZS=F': 'CBOT:ZS1!', 'ZW=F': 'CBOT:ZW1!', 'PL=F': 'NYMEX:PL1!'
+                    'NG=F': 'UNG', 'BZ=F': 'UKOIL', 'HG=F': 'XCUUSD',
+                    'ZC=F': 'CORNUSD', 'ZS=F': 'SOYBNUSD', 'ZW=F': 'WHEATUSD', 'PL=F': 'PLATINUM'
                 };
                 if (commMap[sym]) return commMap[sym];
                 if (sym.includes('^')) return sym.replace('^', '');
