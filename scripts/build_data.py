@@ -288,8 +288,8 @@ def get_stock_data(ticker_symbol, charts_dir):
     try:
         stock = yf.Ticker(ticker_symbol)
         hist = stock.history(period="21d")
-        daily = stock.history(period="60d")
-        if len(hist) < 2 or len(daily) < 50:
+        daily = stock.history(period="90d")
+        if len(hist) < 2 or len(daily) < 40:
             return None
 
         daily_change = (hist['Close'].iloc[-1] / hist['Close'].iloc[-2] - 1) * 100
