@@ -1,6 +1,8 @@
 # Market Dashboard
 
+## Vista Previa
 
+![Dashboard Preview](dashboard_preview.png)
 
 Dashboard estático de acciones con actualización diaria de datos (Yahoo Finance), alojado en GitHub Pages.
 
