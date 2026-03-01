@@ -626,8 +626,9 @@
                 if (!sym) return 'SPY';
                 if (sym.endsWith('=X')) return 'FX_IDC:' + sym.replace('=X', '');
                 var commMap = {
-                    'CL=F': 'NYMEX:CL1!', 'NG=F': 'NYMEX:NG1!', 'BZ=F': 'TVC:UKOIL',
-                    'HG=F': 'COMEX:HG1!', 'ZC=F': 'CBOT:ZC1!', 'ZS=F': 'CBOT:ZS1!', 'ZW=F': 'CBOT:ZW1!'
+                    'GC=F': 'OANDA:XAUUSD', 'SI=F': 'OANDA:XAGUSD', 'CL=F': 'TVC:USOIL',
+                    'NG=F': 'TVC:NATGAS', 'BZ=F': 'TVC:UKOIL', 'HG=F': 'TVC:COPPER',
+                    'ZC=F': 'TVC:CORN', 'ZS=F': 'TVC:SOYBEANS', 'ZW=F': 'TVC:WHEAT', 'PL=F': 'TVC:PLATINUM'
                 };
                 if (commMap[sym]) return commMap[sym];
                 if (sym.includes('^')) return sym.replace('^', '');

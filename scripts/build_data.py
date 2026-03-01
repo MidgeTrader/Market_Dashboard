@@ -58,8 +58,8 @@ STOCK_GROUPS = {
         "EURCHF=X", "AUDJPY=X", "CADJPY=X", "AUDCAD=X", "EURAUD=X"
     ],
     "Commodities": [
-        "XAUUSD=X", "XAGUSD=X", "XPTUSD=X", "XPDUSD=X", "CL=F", 
-        "NG=F", "BZ=F", "HG=F", "ZC=F", "ZS=F"
+        "GC=F", "SI=F", "CL=F", "NG=F", "BZ=F", 
+        "HG=F", "ZC=F", "ZS=F", "ZW=F", "PL=F"
     ]
 }
 

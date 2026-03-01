@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-03-01T13:35:22.136726Z",
+  "built_at": "2026-03-01T13:43:44.232313Z",
   "groups": {
     "Indices": [
       {
@@ -2411,6 +2411,34 @@
     ],
     "Commodities": [
       {
+        "ticker": "GC=F",
+        "daily": 1.38,
+        "intra": 0.88,
+        "5d": 3.73,
+        "20d": null,
+        "atr_pct": 2.6,
+        "dist_sma50_atr": 3.89,
+        "rs": 50.0,
+        "rs_chart": "data/charts/GC_F.png",
+        "long": [],
+        "short": [],
+        "abc": "A"
+      },
+      {
+        "ticker": "SI=F",
+        "daily": 7.23,
+        "intra": 4.73,
+        "5d": 13.38,
+        "20d": null,
+        "atr_pct": 7.1,
+        "dist_sma50_atr": 1.84,
+        "rs": 10.0,
+        "rs_chart": "data/charts/SI_F.png",
+        "long": [],
+        "short": [],
+        "abc": "A"
+      },
+      {
         "ticker": "CL=F",
         "daily": 2.78,
         "intra": 2.56,
@@ -2493,6 +2521,34 @@
         "long": [],
         "short": [],
         "abc": "A"
+      },
+      {
+        "ticker": "ZW=F",
+        "daily": 3.45,
+        "intra": 3.05,
+        "5d": 3.14,
+        "20d": null,
+        "atr_pct": 2.1,
+        "dist_sma50_atr": 5.75,
+        "rs": 100.0,
+        "rs_chart": "data/charts/ZW_F.png",
+        "long": [],
+        "short": [],
+        "abc": "A"
+      },
+      {
+        "ticker": "PL=F",
+        "daily": 6.4,
+        "intra": 4.03,
+        "5d": 9.39,
+        "20d": null,
+        "atr_pct": 4.0,
+        "dist_sma50_atr": 1.46,
+        "rs": 0.0,
+        "rs_chart": "data/charts/PL_F.png",
+        "long": [],
+        "short": [],
+        "abc": "B"
       }
     ]
   },
@@ -2626,15 +2682,15 @@
     "Commodities": {
       "daily": [
         1.13,
-        3.52
+        7.23
       ],
       "intra": [
         0.51,
-        2.72
+        4.73
       ],
       "5d": [
         -6.17,
-        4.91
+        13.38
       ],
       "20d": [
         -30,
