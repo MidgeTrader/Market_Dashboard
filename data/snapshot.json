@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-03-01T11:57:26.932669Z",
+  "built_at": "2026-03-01T13:02:33.238307Z",
   "groups": {
     "Indices": [
       {
@@ -2196,7 +2196,220 @@
         "short": [],
         "abc": "C"
       }
-    ]
+    ],
+    "Forex": [
+      {
+        "ticker": "EURUSD=X",
+        "daily": -0.1,
+        "intra": -0.0,
+        "5d": 0.29,
+        "20d": -1.36,
+        "atr_pct": 0.6,
+        "dist_sma50_atr": 0.38,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "B"
+      },
+      {
+        "ticker": "GBPUSD=X",
+        "daily": -0.06,
+        "intra": 0.0,
+        "5d": -0.37,
+        "20d": -1.43,
+        "atr_pct": 0.7,
+        "dist_sma50_atr": -0.62,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "B"
+      },
+      {
+        "ticker": "USDJPY=X",
+        "daily": 0.11,
+        "intra": 0.0,
+        "5d": 1.1,
+        "20d": 0.54,
+        "atr_pct": 0.9,
+        "dist_sma50_atr": 0.03,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "B"
+      },
+      {
+        "ticker": "USDCHF=X",
+        "daily": 0.14,
+        "intra": -0.0,
+        "5d": -0.27,
+        "20d": 1.15,
+        "atr_pct": 0.8,
+        "dist_sma50_atr": -1.63,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "C"
+      },
+      {
+        "ticker": "AUDUSD=X",
+        "daily": 0.23,
+        "intra": 0.0,
+        "5d": 0.1,
+        "20d": 2.48,
+        "atr_pct": 0.9,
+        "dist_sma50_atr": 3.79,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "A"
+      },
+      {
+        "ticker": "USDCAD=X",
+        "daily": -0.25,
+        "intra": 0.01,
+        "5d": -0.05,
+        "20d": 0.05,
+        "atr_pct": 0.5,
+        "dist_sma50_atr": -1.1,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "C"
+      },
+      {
+        "ticker": "NZDUSD=X",
+        "daily": 0.3,
+        "intra": 0.0,
+        "5d": -0.09,
+        "20d": -0.27,
+        "atr_pct": 0.9,
+        "dist_sma50_atr": 1.88,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "A"
+      },
+      {
+        "ticker": "EURGBP=X",
+        "daily": 0.39,
+        "intra": 0.0,
+        "5d": 0.06,
+        "20d": 0.94,
+        "atr_pct": 0.4,
+        "dist_sma50_atr": 1.27,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "A"
+      },
+      {
+        "ticker": "EURJPY=X",
+        "daily": -0.32,
+        "intra": -0.01,
+        "5d": 0.73,
+        "20d": 0.37,
+        "atr_pct": 0.8,
+        "dist_sma50_atr": 0.18,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "C"
+      },
+      {
+        "ticker": "GBPJPY=X",
+        "daily": -0.71,
+        "intra": -0.01,
+        "5d": 0.68,
+        "20d": -0.55,
+        "atr_pct": 0.9,
+        "dist_sma50_atr": -0.42,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "C"
+      },
+      {
+        "ticker": "EURCHF=X",
+        "daily": 0.04,
+        "intra": -0.01,
+        "5d": 0.01,
+        "20d": -0.23,
+        "atr_pct": 0.4,
+        "dist_sma50_atr": -2.55,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "C"
+      },
+      {
+        "ticker": "AUDJPY=X",
+        "daily": 0.33,
+        "intra": 0.0,
+        "5d": 1.18,
+        "20d": 3.01,
+        "atr_pct": 1.1,
+        "dist_sma50_atr": 3.2,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "A"
+      },
+      {
+        "ticker": "CADJPY=X",
+        "daily": 0.34,
+        "intra": 0.0,
+        "5d": 1.12,
+        "20d": 0.47,
+        "atr_pct": 0.9,
+        "dist_sma50_atr": 0.65,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "B"
+      },
+      {
+        "ticker": "AUDCAD=X",
+        "daily": -0.12,
+        "intra": 0.0,
+        "5d": -0.06,
+        "20d": 2.42,
+        "atr_pct": 0.7,
+        "dist_sma50_atr": 4.29,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "A"
+      },
+      {
+        "ticker": "EURAUD=X",
+        "daily": 0.16,
+        "intra": 0.01,
+        "5d": -0.36,
+        "20d": -2.12,
+        "atr_pct": 0.7,
+        "dist_sma50_atr": -4.3,
+        "rs": null,
+        "rs_chart": null,
+        "long": [],
+        "short": [],
+        "abc": "C"
+      }
+    ],
+    "Commodities": []
   },
   "column_ranges": {
     "Indices": {
@@ -2305,6 +2518,42 @@
       "20d": [
         -11.54,
         21.58
+      ]
+    },
+    "Forex": {
+      "daily": [
+        -0.71,
+        0.39
+      ],
+      "intra": [
+        -0.01,
+        0.01
+      ],
+      "5d": [
+        -0.37,
+        1.18
+      ],
+      "20d": [
+        -2.12,
+        3.01
+      ]
+    },
+    "Commodities": {
+      "daily": [
+        -10,
+        10
+      ],
+      "intra": [
+        -10,
+        10
+      ],
+      "5d": [
+        -20,
+        20
+      ],
+      "20d": [
+        -30,
+        30
       ]
     }
   }

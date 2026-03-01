@@ -51,6 +51,15 @@ STOCK_GROUPS = {
     "Countries": [
         "EZA", "ARGT", "EWA", "THD", "EIDO", "EWC", "GREK", "EWP", "EWG", "EWL", "EUFN", "EWY", "IEUR", "EFA", "ACWI",
         "IEV", "EWQ", "EWI", "EWJ", "EWW", "ECH", "EWD", "ASHR", "EWS", "KSA", "INDA", "EEM", "EWZ", "TUR", "EWH", "EWT", "MCHI"
+    ],
+    "Forex": [
+        "EURUSD=X", "GBPUSD=X", "USDJPY=X", "USDCHF=X", "AUDUSD=X", 
+        "USDCAD=X", "NZDUSD=X", "EURGBP=X", "EURJPY=X", "GBPJPY=X", 
+        "EURCHF=X", "AUDJPY=X", "CADJPY=X", "AUDCAD=X", "EURAUD=X"
+    ],
+    "Commodities": [
+        "GC=F", "SI=F", "CL=F", "NG=F", "BZ=F", 
+        "HG=F", "ZC=F", "ZS=F", "ZW=F", "PL=F"
     ]
 }
 
