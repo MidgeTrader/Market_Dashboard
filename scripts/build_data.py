@@ -148,6 +148,43 @@ def get_ticker_to_sector_mapping():
 TICKER_TO_SECTOR = get_ticker_to_sector_mapping()
 
 
+
+def get_nyse_small_caps():
+    print("Fetching NYSE Small Caps from Finviz...")
+    try:
+        from finvizfinance.screener.overview import Overview
+        foverview = Overview()
+        filters_dict = {
+            'Exchange': 'NYSE',
+            'Market Cap.': 'Small ($300mln to $2bln)',
+            '50-Day Simple Moving Average': 'Price above SMA50'
+        }
+        foverview.set_filter(filters_dict=filters_dict)
+        df = foverview.screener_view(verbose=0)
+        
+        tickers = df['Ticker'].tolist()
+        tickers = [t.replace('.', '-') for t in tickers]
+        print(f"Found {len(tickers)} potential Grade A candidates.")
+        return tickers
+    except Exception as e:
+        print("Error fetching tickers from Finviz.", e)
+        return []
+
+def OLD_get_sp100_tickers():
+    print("Fetching S&P 100 list from Wikipedia...")
+    try:
+        import pandas as pd
+        url = 'https://en.wikipedia.org/wiki/S%26P_100'
+        tables = pd.read_html(url)
+        df = next(t for t in tables if 'Symbol' in t.columns)
+        tickers = df['Symbol'].tolist()
+        tickers = [t.replace('.', '-') for t in tickers]
+        print(f"Found {len(tickers)} S&P 100 tickers.")
+        return tickers
+    except Exception as e:
+        print("Error fetching S&P 100 tickers. Using fallback list...", e)
+        return ["AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "BRK-B", "TSLA", "LLY", "TSM", "AVGO", "V", "JPM", "WMT", "MA", "UNH", "XOM", "PG", "JNJ", "HD", "MRK", "COST", "CVX", "ABBV", "PEP", "CRM", "KO", "BAC", "ADBE", "TMO", "MCD", "CSCO", "ACN", "NFLX", "LIN", "AMD", "ABT", "DHR", "WFC", "INTC", "PM", "CMCSA", "TXN", "INTU", "VZ", "DIS", "COP", "CAT", "PFE", "AMGN", "IBM", "UNP", "BA", "GE", "HON", "QCOM", "SPGI", "LOW", "NOW", "AXP", "SYK", "NKE", "RTX", "GS", "MDT", "ISRG", "ELV", "T", "LMT", "VRTX", "MS", "BKNG", "TJX", "C", "BLK", "REGN", "MDLZ", "ADP", "MMC", "CB", "CI", "MO", "CVS", "ZTS", "BSX", "ADI", "FI", "PGR", "GILD", "CHTR", "TGT", "DE", "BMY", "ITW", "SHW", "AON", "EOG", "CSX", "SO", "SLB"]
+
 def get_leveraged_etfs(ticker):
     if ticker in LEVERAGED_ETFS:
         return LEVERAGED_ETFS[ticker].get("long", []), LEVERAGED_ETFS[ticker].get("short", [])
@@ -308,6 +345,15 @@ def get_stock_data(ticker_symbol, charts_dir):
         atr_pct = (atr / current_close) * 100 if atr and current_close else None
         dist_sma50_atr = (100 * (current_close / sma50 - 1) / atr_pct) if (sma50 and atr_pct and atr_pct != 0) else None
         abc_rating = calculate_abc_rating(daily)
+        if abc_rating != "A":
+            return None
+
+        if (daily_change is not None and daily_change > 0 and 
+            intraday_change is not None and intraday_change > 0 and
+            five_day_change is not None and five_day_change > 0 and
+            twenty_day_change is not None and twenty_day_change > 0):
+            abc_rating = "A+"
+
 
         rs_sts = None
         rrs_data = None
@@ -338,8 +384,7 @@ def get_stock_data(ticker_symbol, charts_dir):
             "dist_sma50_atr": round(dist_sma50_atr, 2) if dist_sma50_atr is not None else None,
             "rs": round(rs_sts, 0) if rs_sts is not None else None,
             "rs_chart": rs_chart_path,
-            "long": long_etfs,
-            "short": short_etfs,
+            "price": round(current_close, 2) if current_close is not None else None,
             "abc": abc_rating
         }
     except Exception as e:
@@ -358,7 +403,11 @@ def main():
     print("Fetching economic events...")
     events = get_upcoming_key_events()
 
-    print("Fetching stock data (no Liquid Stocks)...")
+    print("Fetching NYSE Small Caps (Grade A candidates)...")
+    smallcap_tickers = get_nyse_small_caps()
+    STOCK_GROUPS = {"NYSE Small Caps (Grado A)": smallcap_tickers}
+
+    print("Fetching stock data...")
     groups_data = {}
     all_ticker_data = {}
     for group_name, tickers in STOCK_GROUPS.items():
@@ -396,7 +445,7 @@ def main():
         "TICKER_TO_SECTOR": TICKER_TO_SECTOR,
         "Industries_COLORS": Industries_COLORS,
         "SECTOR_ORDER": list(SECTOR_COLORS.keys()),
-        "default_symbol": STOCK_GROUPS["Indices"][0] if STOCK_GROUPS["Indices"] else "SPY",
+        "default_symbol": "SPY",
     }
 
     snapshot_path = os.path.join(out_dir, "snapshot.json")

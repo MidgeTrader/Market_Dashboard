@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Chart Viewer</title>
+    <title>NYSE Small Caps Dashboard - Grade A ($300M-$2B)</title>
     <style>
         * {
             box-sizing: border-box;
@@ -287,9 +287,10 @@
 
         .abc-rating {
             display: inline-block;
-            width: 20px;
+            min-width: 20px;
+            padding: 0 4px;
             height: 20px;
-            border-radius: 50%;
+            border-radius: 10px;
             text-align: center;
             line-height: 20px;
             font-weight: bold;
@@ -298,6 +299,10 @@
 
         .abc-a {
             background-color: #3b82f6;
+        }
+
+        .abc-aplus {
+            background-color: #8b5cf6;
         }
 
         .abc-b {
@@ -540,7 +545,7 @@
                     return;
                 }
                 var html = '';
-                var groupOrder = ['Indices', 'S&P Style ETFs', 'Sel Sectors', 'EW Sectors', 'Industries', 'Countries', 'Forex', 'Commodities'];
+                var groupOrder = Object.keys(snapshot.groups);
                 for (var g = 0; g < groupOrder.length; g++) {
                     var groupName = groupOrder[g];
                     var rows = snapshot.groups[groupName];
@@ -569,7 +574,7 @@
                     html += th('dist_sma50_atr', 'ATRx');
                     html += th('rs', '1M-VARS');
                     html += th('rs', 'VARS');
-                    html += th('letf', 'LETF');
+                    html += th('price', 'Precio');
                     html += '</tr></thead><tbody id="' + safeId + '-body">';
                     for (var i = 0; i < rows.length; i++) {
                         var r = rows[i];
@@ -589,15 +594,15 @@
                         };
                         var displayName = friendlyNames[r.ticker] || r.ticker;
 
-                        var letf = (r.long && r.long.length) || (r.short && r.short.length) ? '1' : '0';
+                        var price = r.price != null ? r.price : 0;
                         var abc = r.abc || '';
                         var rs = r.rs != null ? r.rs : 0;
                         var atrPct = r.atr_pct != null ? r.atr_pct : 0;
                         var dist = r.dist_sma50_atr != null ? r.dist_sma50_atr : 0;
                         var labelClass = getGroupLabelClass(groupName, r.ticker);
-                        html += '<tr class="ticker-row" onclick="updateChart(\'' + r.ticker + '\', this)" data-ticker="' + r.ticker + '" data-symbol="' + displayName + '" data-group="' + groupName.replace(/"/g, '&quot;') + '" data-daily="' + (daily != null ? daily : 0) + '" data-intra="' + (intra != null ? intra : 0) + '" data-5d="' + (five != null ? five : 0) + '" data-20d="' + (twenty != null ? twenty : 0) + '" data-atr_pct="' + atrPct + '" data-dist_sma50_atr="' + dist + '" data-rs="' + rs + '" data-abc="' + abc + '" data-letf="' + letf + '" data-index="' + i + '">';
+                        html += '<tr class="ticker-row" onclick="updateChart(\'' + r.ticker + '\', this)" data-ticker="' + r.ticker + '" data-symbol="' + displayName + '" data-group="' + groupName.replace(/"/g, '&quot;') + '" data-daily="' + (daily != null ? daily : 0) + '" data-intra="' + (intra != null ? intra : 0) + '" data-5d="' + (five != null ? five : 0) + '" data-20d="' + (twenty != null ? twenty : 0) + '" data-atr_pct="' + atrPct + '" data-dist_sma50_atr="' + dist + '" data-rs="' + rs + '" data-abc="' + abc + '" data-price="' + price + '" data-index="' + i + '">';
                         html += '<td><span class="ticker-label ' + labelClass + '">' + displayName + '</span></td>';
-                        html += '<td>' + (abc ? '<span class="abc-rating abc-' + abc.toLowerCase() + '">' + abc + '</span>' : '-') + '</td>';
+                        html += '<td>' + (abc ? '<span class="abc-rating abc-' + abc.toLowerCase().replace('+', 'plus') + '">' + abc + '</span>' : '-') + '</td>';
                         html += '<td class="' + dailyCl + '">' + (daily != null ? '<div class="value-visualization"><div class="value-bar ' + (daily >= 0 ? 'positive' : 'negative') + '" style="width:' + dailyW + '%"></div><span class="value-text">' + (daily >= 0 ? '+' : '') + daily.toFixed(2) + '%</span></div>' : 'N/A') + '</td>';
                         html += '<td class="' + intraCl + '">' + (intra != null ? '<div class="value-visualization"><div class="value-bar ' + (intra >= 0 ? 'positive' : 'negative') + '" style="width:' + intraW + '%"></div><span class="value-text">' + (intra >= 0 ? '+' : '') + intra.toFixed(2) + '%</span></div>' : 'N/A') + '</td>';
                         html += '<td class="' + fiveCl + '">' + (five != null ? '<div class="value-visualization"><div class="value-bar ' + (five >= 0 ? 'positive' : 'negative') + '" style="width:' + fiveW + '%"></div><span class="value-text">' + (five >= 0 ? '+' : '') + five.toFixed(2) + '%</span></div>' : 'N/A') + '</td>';
@@ -606,11 +611,7 @@
                         html += '<td>' + (r.dist_sma50_atr != null ? r.dist_sma50_atr.toFixed(2) : 'N/A') + '</td>';
                         html += '<td>' + (r.rs != null ? Math.round(r.rs) + '%' : 'N/A') + '</td>';
                         html += '<td>' + (r.rs_chart ? '<img src="' + r.rs_chart + '" class="rs-chart" alt="RS">' : 'N/A') + '</td>';
-                        html += '<td class="etf-list">';
-                        if (r.long && r.long.length) html += r.long.map(function (etf) { return '<span class="long-etf" onclick="event.stopPropagation();updateChart(\'' + etf + '\')">' + etf + '</span>'; }).join(', ');
-                        if (r.short && r.short.length) { if (r.long && r.long.length) html += '<br>'; html += r.short.map(function (etf) { return '<span class="short-etf" onclick="event.stopPropagation();updateChart(\'' + etf + '\')">' + etf + '</span>'; }).join(', '); }
-                        if (!(r.long && r.long.length) && !(r.short && r.short.length)) html += '-';
-                        html += '</td></tr>';
+                        html += '<td style="font-weight: bold; font-family: monospace;">$' + (r.price != null ? r.price.toFixed(2) : 'N/A') + '</td></tr>';
                     }
                     html += '</tbody></table></div>';
                 }
@@ -699,7 +700,7 @@
                 state.sortBy = sortBy;
                 if (state.count === 2) state.direction *= -1; else state.direction = 1;
 
-                var colMap = { symbol: 0, abc: 1, daily: 2, intra: 3, '5d': 4, '20d': 5, atr_pct: 6, dist_sma50_atr: 7, rs: 8, letf: 10 };
+                var colMap = { symbol: 0, abc: 1, daily: 2, intra: 3, '5d': 4, '20d': 5, atr_pct: 6, dist_sma50_atr: 7, rs: 8, price: 10 };
                 var hi = colMap[sortBy] !== undefined ? colMap[sortBy] : 9;
                 var headerIndices = (sortBy === 'rs') ? [8, 9] : [hi];  /* highlight both 1M-VARS and VARS when sorting by rs */
                 headerIndices.forEach(function (idx) {
@@ -726,9 +727,12 @@
                         }
                         return (a.getAttribute('data-symbol').toLowerCase().localeCompare(b.getAttribute('data-symbol').toLowerCase())) * state.direction;
                     } else if (sortBy === 'abc') {
-                        return ((a.getAttribute('data-abc') || '').localeCompare(b.getAttribute('data-abc') || '')) * state.direction;
-                    } else if (sortBy === 'letf') {
-                        return (parseInt(a.getAttribute('data-letf') || '0') - parseInt(b.getAttribute('data-letf') || '0')) * state.direction;
+                        var valA = a.getAttribute('data-abc') || '';
+                        var valB = b.getAttribute('data-abc') || '';
+                        var rank = { 'A+': 1, 'A': 2, 'B': 3, 'C': 4, '': 5 };
+                        return ((rank[valA] || 5) - (rank[valB] || 5)) * state.direction;
+                    } else if (sortBy === 'price') {
+                        return (parseFloat(a.getAttribute('data-price') || '0') - parseFloat(b.getAttribute('data-price') || '0')) * state.direction;
                     } else {
                         return (parseFloat(a.getAttribute('data-' + sortBy)) - parseFloat(b.getAttribute('data-' + sortBy))) * state.direction;
                     }
